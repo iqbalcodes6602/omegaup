@@ -1,6 +1,7 @@
+- [ACL](#acl)
+  - [`/api/aCL/userOwnedAclReport/`](#apiacluserownedaclreport)
 - [Admin](#admin)
   - [`/api/admin/platformReportStats/`](#apiadminplatformreportstats)
-  - [`/api/admin/userProfileReport/`](#apiadminuserprofilereport)
 - [Authorization](#authorization)
   - [`/api/authorization/problem/`](#apiauthorizationproblem)
 - [Badge](#badge)
@@ -266,6 +267,20 @@
   - [`/api/user/validateFilter/`](#apiuservalidatefilter)
   - [`/api/user/verifyEmail/`](#apiuserverifyemail)
 
+# ACL
+
+## `/api/aCL/userOwnedAclReport/`
+
+### Description
+
+Returns all ACLs owned by the current user along with assigned roles for each.
+
+### Returns
+
+| Name   | Type                                                                                                                                                                |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `acls` | `{ acl_id: number; alias: string; type: string; users: { role_description: string; role_id: number; role_name: string; user_id: number; username: string; }[]; }[]` |
+
 # Admin
 
 ## `/api/admin/platformReportStats/`
@@ -286,18 +301,6 @@ Get stats for an overall platform report.
 | Name     | Type                                                                                                                                                                                                     |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `report` | `{ acceptedSubmissions: number; activeSchools: number; activeUsers: { [key: string]: number; }; courses: number; omiCourse: { attemptedUsers: number; completedUsers: number; passedUsers: number; }; }` |
-
-## `/api/admin/userProfileReport/`
-
-### Description
-
-Get a report listing users by profile, their assigned ACLs, and ACL types.
-
-### Returns
-
-| Name     | Type                                                                                                                                             |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `report` | `{ roles: { acl_id: number; acl_type: string; alias: string; description: string; name: string; }[]; roles_count: number; username: string; }[]` |
 
 # Authorization
 

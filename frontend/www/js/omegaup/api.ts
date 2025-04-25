@@ -90,15 +90,18 @@ export function apiCall<
     });
 }
 
+export const ACL = {
+  userOwnedAclReport: apiCall<
+    messages.ACLUserOwnedAclReportRequest,
+    messages.ACLUserOwnedAclReportResponse
+  >('/api/aCL/userOwnedAclReport/'),
+};
+
 export const Admin = {
   platformReportStats: apiCall<
     messages.AdminPlatformReportStatsRequest,
     messages.AdminPlatformReportStatsResponse
   >('/api/admin/platformReportStats/'),
-  userProfileReport: apiCall<
-    messages.AdminUserProfileReportRequest,
-    messages.AdminUserProfileReportResponse
-  >('/api/admin/userProfileReport/'),
 };
 
 export const Authorization = {
